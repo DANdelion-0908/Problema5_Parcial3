@@ -6,7 +6,7 @@ Implementar un programa que permita colocar un alambre cilíndrico al cual se le
 - Largo del alambre
 - Diámetro (debe dar la opción de poderse ingresar el valor en mm o AWG. Si se ingresa el calibre AWG automáticamente mostrar el diámetro en mm)
 - Material del que está hecho el conductor: oro, plata, cobre, aluminio o grafito.
-- Para cada uno mostrar el valor de  (densidad de partículas)
+  Para cada uno mostrar el valor de n (densidad de partículas)
 - Voltaje aplicado.
 
 ## Parámetros de salida:
