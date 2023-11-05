@@ -1,6 +1,20 @@
 import turtle
 import time
 
+def electronAnimation(turti: turtle, len: float):
+
+    turti.setposition(0, 0)
+    time.sleep(1)
+
+    turti.shape('circle')
+    turti.pencolor('blue')
+    turti.fillcolor('blue')
+    turti.shapesize(1,1)
+    turti.speed('slowest')
+    turti.showturtle()
+    
+    turti.forward(len)
+    
 #Function to draw a grid
 def draw_grid(step, size,turtle):
     for i in range(-size, (size+1), step):
@@ -15,13 +29,13 @@ def draw_grid(step, size,turtle):
         turtle.pendown()
         turtle.goto(size, i)
 
-def drawAxis(screenSize: float):
-    t1 = turtle.Turtle()
-    t2 = turtle.Turtle()
-    t3 = turtle.Turtle()
-    t4 = turtle.Turtle()
-    t5 = turtle.Turtle()
-    t6 = turtle.Turtle()
+def drawAxis(screenSize: float, screen):
+    t1 = turtle.RawTurtle(screen)
+    t2 = turtle.RawTurtle(screen)
+    t3 = turtle.RawTurtle(screen)
+    t4 = turtle.RawTurtle(screen)
+    t5 = turtle.RawTurtle(screen)
+    t6 = turtle.RawTurtle(screen)
 
     turtles = [t1,t2,t3,t4,t5,t6]
 
@@ -61,14 +75,14 @@ def drawAxis(screenSize: float):
 
 #To use this method, the radius passed to the method has to be in mm and the length in meters
 #The conversions are made inside the method so the scale is better for the simulation
-def drawCilinder(radius: float, length: float, wireColor: float):
+def drawCilinder(radius: float, length: float, wireColor: float, screen):
 
     radius = radius * 10
     length = length * 100
 
     SIZE = 30
 
-    turt = turtle.Turtle()
+    turt = turtle.RawTurtle(screen)
     turt.speed(4)
 
     turt.setposition( length / 2 , 0)
@@ -97,18 +111,3 @@ def drawCilinder(radius: float, length: float, wireColor: float):
     turt.hideturtle()
 
     electronAnimation(turt, length)
-
-def electronAnimation(turti: turtle, len: float):
-
-    turti.setposition(0, 0)
-    time.sleep(1)
-
-    turti.shape('circle')
-    turti.pencolor('blue')
-    turti.fillcolor('blue')
-    turti.shapesize(1,1)
-    turti.speed('slowest')
-    turti.showturtle()
-    
-
-    turti.forward(len)

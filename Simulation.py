@@ -1,51 +1,44 @@
 import turtle
-import math
 from Drawings import *
+import tkinter as tk
 
-def Simulation():
-    print("Hello")
+def Simulation(gorge, screen):
+    screen.clearscreen()
 
-    turtle.clearscreen()
-    gorge = turtle.Turtle()
-
-    turtle.tracer(False)
-    turtle.update()
+    screen.tracer(False)
+    screen.update()
 
     verticalScreenSize = 800
     horizontalScreenSize = 2000
-    turtle.setup(800, verticalScreenSize - 150)
-    turtle.screensize(horizontalScreenSize, verticalScreenSize)
+    # turtle.setup(800, verticalScreenSize - 150)
+    screen.screensize(horizontalScreenSize, verticalScreenSize)
 
-    draw_grid(10, horizontalScreenSize, turtle= gorge)
+    draw_grid(10, horizontalScreenSize, turtle=gorge)
 
-    drawAxis(verticalScreenSize / 3)
+    drawAxis(verticalScreenSize / 3, screen)
 
-    turtle.tracer(True)
-    turtle.update()
-    
+    screen.tracer(True)
+    screen.update()
+
     #Variable to store the cable material
     cableMaterial = "Cobre" 
 
     #To use the method drawCilinder(radius, length), the radius passed to the method has to be in mm and the length in meters
     #The conversions are made inside the method so the scale is better for the simulation 
     #(Here I use 4mm for radius and 4 meters of length)
-    
+
 
     if(cableMaterial == "Oro"):
-        drawCilinder(4, 3, "yellow")
-    
+        drawCilinder(4, 3, "yellow", screen)
+
     elif(cableMaterial == "Plata"):
-        drawCilinder(4, 3, "white")
+        drawCilinder(4, 3, "white", screen)
 
     elif(cableMaterial == "Cobre"):
-        drawCilinder(4, 3, "orange")
+        drawCilinder(4, 3, "orange", screen)
         
     elif(cableMaterial == "Aluminio"):
-        drawCilinder(4, 3, "grey")
+        drawCilinder(4, 3, "grey", screen)
         
     elif(cableMaterial == "Grafito"):
-        drawCilinder(4, 3, "black")
-
-    turtle.done()
-
-Simulation()
+        drawCilinder(4, 3, "black", screen)
