@@ -4,11 +4,12 @@ import tkinter as tk
 import Simulation as sim
 
 def startSimulation():
-    sim.Simulation(gorge, screen)
+    sim.Simulation(gorge, screen, materialEntry.get(), float(diameterEntry.get()) / 2, float(widthEntry.get()))
 
 ctk.set_default_color_theme("dark-blue")
 ctk.set_appearance_mode("light")
 
+# Main Screen
 root = tk.Tk()
 root.resizable(False, False)
 root.title("Rapidez de Arrastre de los Electrones")
@@ -17,9 +18,13 @@ root.grid_rowconfigure(0,weight=1)
 root.grid_columnconfigure(0,weight=1)
 root.grid_columnconfigure(1,weight=5)
 
+# Input and Turtle Frame
 frame = ctk.CTkFrame(root)
 
+tFrame = ctk.CTkScrollableFrame(root, width=1300, height=500, orientation="horizontal")
+
 frame.grid_rowconfigure(0, weight=1)
+frame.grid_rowconfigure(1, weight=2)
 frame.columnconfigure(0, weight=1)
 
 # Parámetros de entrada
@@ -42,11 +47,16 @@ frame.grid(column= 0, row=0, )
 
 # Submit Button
 submitButton = ctk.CTkButton(frame, text="Confirmar", command=startSimulation)
-submitButton.grid(column=0, row=6)
+submitButton.grid(column=0, row=6, pady=50)
+
+test = ctk.CTkButton(root, text="Hola")
+test.grid(column=0, row=1, columnspan=2)
 
 # Lienzo para Turtle
-canvas = tk.Canvas(root, width=800, height=650)
+canvas = tk.Canvas(tFrame, width=3000, height=500)
 canvas.grid(column=1, row=0)
+
+tFrame.grid(column=1, row=0)
 
 screen = tr.TurtleScreen(canvas)
 

@@ -4,6 +4,7 @@ import time
 def electronAnimation(turti: turtle, len: float):
 
     turti.setposition(0, 0)
+    turti.back(1200)
     time.sleep(1)
 
     turti.shape('circle')
@@ -50,6 +51,36 @@ def drawAxis(screenSize: float, screen):
     t5.pencolor("blue")
     t6.pencolor("blue")
     
+    t1.penup()
+    t1.back(1200)
+    t1.pendown()
+
+    t2.penup()
+    t2.back(1200)
+    t2.pendown()
+
+    t3.penup()
+    t3.back(1200)
+    t3.pendown()
+
+    t4.penup()
+    t4.back(1200)
+    t4.pendown()
+
+    t5.penup()
+    t5.back(1200)
+    t5.pendown()
+
+    t6.penup()
+    t6.back(1200)
+    t6.pendown()
+
+    t2.pencolor("red")
+    t3.pencolor("green")
+    t4.pencolor("green")
+    t5.pencolor("blue")
+    t6.pencolor("blue")
+
     t1.forward(screenSize)
     t1.fillcolor("red")
 
@@ -85,7 +116,11 @@ def drawCilinder(radius: float, length: float, wireColor: float, screen):
     turt = turtle.RawTurtle(screen)
     turt.speed(4)
 
-    turt.setposition( length / 2 , 0)
+    turt.penup()
+    turt.back(1200)
+    turt.fd(length / 2)
+    turt.pendown()
+
     turt.shape('square')
     turt.shapesize(radius * 2 / SIZE, length / 20)
     turt.fillcolor(wireColor)
