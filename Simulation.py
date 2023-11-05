@@ -41,13 +41,13 @@ def Simulation(gorge, screen, cableMaterial, radius, length):
         drawCilinder(radius, length, "yellow", screen)
 
     elif(cableMaterial == "Plata"):
-        drawCilinder(4, 3, "white", screen)
+        drawCilinder(radius, length, "white", screen)
 
     elif(cableMaterial == "Cobre"):
-        drawCilinder(4, 3, "orange", screen)
+        drawCilinder(radius, length, "brown", screen)
         
     elif(cableMaterial == "Aluminio"):
-        drawCilinder(4, 3, "grey", screen)
+        drawCilinder(radius, length, "grey", screen)
         
     elif(cableMaterial == "Grafito"):
-        drawCilinder(4, 3, "black", screen)
+        drawCilinder(radius, length, "black", screen)

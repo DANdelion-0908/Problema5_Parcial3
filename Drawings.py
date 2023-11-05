@@ -13,10 +13,11 @@ def electronAnimation(turti: turtle, len: float):
     :param len: The parameter "len" represents the length or distance that the turtle will move forward
     :type len: float
     """
-
+    turti.penup()
     turti.setposition(0, 0)
     turti.back(1200)
     time.sleep(1)
+    turti.pendown()
 
     turti.shape('circle')
     turti.pencolor('blue')
