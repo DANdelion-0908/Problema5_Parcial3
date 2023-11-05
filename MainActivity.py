@@ -2,8 +2,12 @@ import customtkinter as ctk
 import turtle as tr
 import tkinter as tk
 import Simulation as sim
+import WireMath as wm
 
 def startSimulation():
+    """
+    The function "startSimulation" initiates a simulation with specified parameters.
+    """
     sim.Simulation(gorge, screen, materialEntry.get(), float(diameterEntry.get()) / 2, float(widthEntry.get()))
 
 ctk.set_default_color_theme("dark-blue")
@@ -61,5 +65,8 @@ tFrame.grid(column=1, row=0)
 screen = tr.TurtleScreen(canvas)
 
 gorge = tr.RawTurtle(screen)
+
+# Output Frame
+
 
 root.mainloop()
