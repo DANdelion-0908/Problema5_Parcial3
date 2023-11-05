@@ -1,4 +1,5 @@
 import turtle
+import time
 
 #Function to draw a grid
 def draw_grid(step, size,turtle):
@@ -60,19 +61,20 @@ def drawAxis(screenSize: float):
 
 #To use this method, the radius passed to the method has to be in mm and the length in meters
 #The conversions are made inside the method so the scale is better for the simulation
-def drawCilinder(radius: float, length: float):
+def drawCilinder(radius: float, length: float, wireColor: float):
 
     radius = radius * 10
     length = length * 100
 
-    SIZE = 20
+    SIZE = 30
 
     turt = turtle.Turtle()
+    turt.speed(4)
 
     turt.setposition( length / 2 , 0)
     turt.shape('square')
-    turt.shapesize(radius * 2 / SIZE, length / SIZE)
-    turt.fillcolor("orange")
+    turt.shapesize(radius * 2 / SIZE, length / 20)
+    turt.fillcolor(wireColor)
     turt.stamp()
 
     turt.shape('circle')
@@ -81,13 +83,32 @@ def drawCilinder(radius: float, length: float):
     turt.stamp()
 
     turt.forward(2)
-    turt.pencolor('orange')
+    turt.pencolor(wireColor)
     turt.stamp()
 
     turt.forward(length - 5)
-    turt.color('black')
+
+    if(wireColor == "black"):
+        turt.color("white")
+    else:
+        turt.color("black")
+
     turt.stamp()
+    turt.hideturtle()
 
-    print("This is a cilinder")
+    electronAnimation(turt, length)
 
-    turtle.done()
+def electronAnimation(turti: turtle, len: float):
+
+    turti.setposition(0, 0)
+    time.sleep(1)
+
+    turti.shape('circle')
+    turti.pencolor('blue')
+    turti.fillcolor('blue')
+    turti.shapesize(1,1)
+    turti.speed('slowest')
+    turti.showturtle()
+    
+
+    turti.forward(len)
