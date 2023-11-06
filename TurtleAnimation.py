@@ -1,3 +1,4 @@
+import sys
 from turtle import *
 import colorsys
 
@@ -16,12 +17,16 @@ def fun(jorge):
         jorge.rt(9)
         jorge.end_fill()
 
-def startAnimation(jorge, screen):
-    jorge.speed(0)
-    jorge._color("black")
-    jorge.pensize(4)
-    while(1 == 1):
-        for j in range(300):
-            fun(jorge) 
-            jorge.goto(0,0)
-            jorge.rt(10)
+def startAnimation(jorge):
+    try:
+        jorge.speed(0)
+        jorge._color("black")
+        jorge.pensize(4)
+        while(1 == 1):
+            for j in range(300):
+                fun(jorge) 
+                jorge.goto(0,0)
+                jorge.rt(10)
+    
+    except:
+        sys.exit()
