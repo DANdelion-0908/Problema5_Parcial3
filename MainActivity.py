@@ -95,7 +95,7 @@ ctk.set_appearance_mode("Light")
 
 # Main Screen
 root = tk.Tk()
-root.configure(bg=THEME_COLOR)
+root.geometry("1920x720")
 root.title("Rapidez de Arrastre de los Electrones")
 
 #root.grid_rowconfigure(0,weight=1)
@@ -103,11 +103,14 @@ root.grid_columnconfigure(0,weight=1, pad=20)
 root.grid_columnconfigure(1,weight=5, pad=20)
 
 # Input and Turtle Frame
-frame = tk.Frame(root, background=THEME_COLOR)
+rootFrame = ctk.CTkScrollableFrame(root, fg_color=THEME_COLOR)
+rootFrame.pack(fill=tk.BOTH, expand=1)
+
+frame = tk.Frame(rootFrame, background=THEME_COLOR)
 
 sliderFrame = tk.Frame(frame, width=20)
 
-tFrame = ctk.CTkScrollableFrame(root, width=1300, height=500, orientation="horizontal")
+tFrame = ctk.CTkScrollableFrame(rootFrame, width=1300, height=500, orientation="horizontal")
 
 frame.grid_rowconfigure(0, weight=1)
 frame.grid_rowconfigure(1, weight=2)
@@ -190,7 +193,7 @@ screen = tr.TurtleScreen(canvas)
 gorge = tr.RawTurtle(screen)
 
 # Output Frame
-outputFrame = ctk.CTkFrame(root, width=400, height=600, fg_color=CONTRAST_COLOR)
+outputFrame = ctk.CTkScrollableFrame(rootFrame, width=1000, fg_color=CONTRAST_COLOR, orientation=tk.HORIZONTAL)
 outputFrame.grid(column=1, columnspan=2, row=1)
 
 outputFrame.columnconfigure(1, pad=500)
@@ -216,7 +219,7 @@ speedLabel.grid(column=2, row=1)
 timeLabel = ctk.CTkLabel(outputFrame, text="Tiempo para finalizar: ", text_color="#FFFFFF", font=("Arial", 25, BOLD))
 timeLabel.grid(column=0, columnspan=3, row=2, pady=20)
 
-animationCanvas = tk.Canvas(root)
+animationCanvas = tk.Canvas(rootFrame)
 animationCanvas.grid(column=0, row=1, pady=20)
 
 animationScreen = tr.TurtleScreen(animationCanvas)
