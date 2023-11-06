@@ -96,7 +96,6 @@ ctk.set_appearance_mode("Light")
 # Main Screen
 root = tk.Tk()
 root.configure(bg=THEME_COLOR)
-root.resizable(False, False)
 root.title("Rapidez de Arrastre de los Electrones")
 
 #root.grid_rowconfigure(0,weight=1)
