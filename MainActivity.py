@@ -31,10 +31,11 @@ def startSimulation():
         density = mp.properties.get(material)[0]
         weight = mp.properties.get(material)[1]
         resistivity = mp.properties.get(material)[2]
+        nElectrons = mp.properties.get(material)[3]
         currentAWG = math.floor(awgEntry.get())
         length = float(widthEntry.get())
         voltage = float(voltageEntry.get())
-        particleDensity = wm.particleDensity(weight, density)
+        particleDensity = wm.particleDensity(weight, density, nElectrons)
         selectedOption = diameterOrAWGSwitch.get()
 
         if(selectedOption == 1):
@@ -68,7 +69,7 @@ def startSimulation():
             
 
 def setParticleDensity(event):
-    particleDensityCalc = wm.particleDensity(U=mp.properties.get(materialEntry.get())[1], D=mp.properties.get(materialEntry.get())[0])
+    particleDensityCalc = wm.particleDensity(U=mp.properties.get(materialEntry.get())[1], D=mp.properties.get(materialEntry.get())[0], El= mp.properties.get(materialEntry.get())[3])
     particleDensityCalc = wm.format_to_scientific_notation(particleDensityCalc)
     particleDensityLabel.configure(text=f"n: {particleDensityCalc} e/m^3")
 

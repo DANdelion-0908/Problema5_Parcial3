@@ -1,6 +1,6 @@
 import math
 
-def particleDensity(U: float, D: float):
+def particleDensity(U: float, D: float, El: float):
 
     """
     Particle density given its molar mass (U) and density (D)
@@ -8,7 +8,7 @@ def particleDensity(U: float, D: float):
     # Avogadro's number
     Av = 6.022e23
 
-    return (1/U) * (Av) * (1000) * (D)
+    return (1/U) * (Av) * (1000) * (El) * (D)
 
 def transversalArea(d: float):
 

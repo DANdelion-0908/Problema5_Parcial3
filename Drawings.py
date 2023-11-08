@@ -13,20 +13,22 @@ def electronAnimation(turti: turtle, len: float):
     :param len: The parameter "len" represents the length or distance that the turtle will move forward
     :type len: float
     """
-    turti.penup()
-    turti.setposition(0, 0)
-    turti.back(1200)
-    time.sleep(1)
-    turti.pendown()
-
-    turti.shape('circle')
-    turti.pencolor('blue')
-    turti.fillcolor('blue')
-    turti.shapesize(1,1)
-    turti.speed('slowest')
-    turti.showturtle()
     
-    turti.forward(len)
+    for i in range(5):
+        turti.penup()
+        turti.speed(0)
+        turti.setposition(0, 0)
+        turti.back(1200)
+        turti.pendown()
+
+        turti.shape('circle')
+        turti.pencolor('blue')
+        turti.fillcolor('blue')
+        turti.shapesize(1,1)
+        turti.speed('slowest')
+        turti.showturtle()
+        
+        turti.forward(len)
     
 #Function to draw a grid
 def draw_grid(step, size,turtle):
