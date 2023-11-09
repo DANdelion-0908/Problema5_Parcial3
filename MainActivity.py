@@ -1,3 +1,4 @@
+from distutils.dist import command_re
 from tkinter.font import BOLD
 import customtkinter as ctk
 import turtle as tr
@@ -96,12 +97,8 @@ ctk.set_appearance_mode("Light")
 
 # Main Screen
 root = tk.Tk()
-root.geometry("1920x720")
+root.geometry("1000x720")
 root.title("Rapidez de Arrastre de los Electrones")
-
-#root.grid_rowconfigure(0,weight=1)
-root.grid_columnconfigure(0,weight=1, pad=20)
-root.grid_columnconfigure(1,weight=5, pad=20)
 
 # Input and Turtle Frame
 rootFrame = ctk.CTkScrollableFrame(root, fg_color=THEME_COLOR)
@@ -116,7 +113,7 @@ tFrame = ctk.CTkScrollableFrame(rootFrame, width=1300, height=500, orientation="
 frame.grid_rowconfigure(0, weight=1)
 frame.grid_rowconfigure(1, weight=2)
 frame.columnconfigure(0, weight=1)
-frame.columnconfigure(1, pad=5)
+frame.columnconfigure(1, pad=50)
 
 # Creating menu bar
 menuBar = tk.Menu()
@@ -194,8 +191,8 @@ screen = tr.TurtleScreen(canvas)
 gorge = tr.RawTurtle(screen)
 
 # Output Frame
-outputFrame = ctk.CTkScrollableFrame(rootFrame, width=1000, fg_color=CONTRAST_COLOR, orientation=tk.HORIZONTAL)
-outputFrame.grid(column=1, columnspan=2, row=1)
+outputFrame = ctk.CTkScrollableFrame(rootFrame, fg_color=CONTRAST_COLOR, orientation=tk.HORIZONTAL, width=1200)
+outputFrame.grid(column=0, row=1, columnspan= 2, sticky=tk.W)
 
 outputFrame.columnconfigure(1, pad=500)
 outputFrame.columnconfigure(0, pad=10)
@@ -221,7 +218,7 @@ timeLabel = ctk.CTkLabel(outputFrame, text="Tiempo para finalizar: ", text_color
 timeLabel.grid(column=0, columnspan=3, row=2, pady=20)
 
 animationCanvas = tk.Canvas(rootFrame)
-animationCanvas.grid(column=0, row=1, pady=20)
+animationCanvas.grid(column=1, row=1, pady=20, sticky=tk.E)
 
 animationScreen = tr.TurtleScreen(animationCanvas)
 animationScreen.bgcolor("black")
