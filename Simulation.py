@@ -1,6 +1,7 @@
 import turtle
 from Drawings import *
 import tkinter as tk
+import RandomWalk as rw
 
 def Simulation(gorge, screen, cableMaterial, radius, length):
     """
@@ -38,16 +39,19 @@ def Simulation(gorge, screen, cableMaterial, radius, length):
     #(Here I use 4mm for radius and 4 meters of length)
 
     if(cableMaterial == "Oro"):
-        drawCilinder(radius, length, "yellow", screen)
+        drawCilinder(radius, length, "yellow", screen, 1)
 
     elif(cableMaterial == "Plata"):
-        drawCilinder(radius, length, "white", screen)
+        drawCilinder(radius, length, "white", screen, 1)
 
     elif(cableMaterial == "Cobre"):
-        drawCilinder(radius, length, "brown", screen)
+        drawCilinder(radius, length, "brown", screen, 1)
         
     elif(cableMaterial == "Aluminio"):
-        drawCilinder(radius, length, "grey", screen)
+        drawCilinder(radius, length, "grey", screen, 1)
         
     elif(cableMaterial == "Grafito"):
-        drawCilinder(radius, length, "black", screen)
+        drawCilinder(radius, length, "black", screen, 1)
+
+def SimulateRandomWalk(gorge, screen):
+    rw.SimulateRandom(gorge, "white", screen)

@@ -6,12 +6,16 @@ import tkinter as tk
 import Simulation as sim
 import WireMath as wm
 import MaterialProperties as mp
+import RandomWalk as rw
 
 import math
 import TurtleAnimation
 
 THEME_COLOR = "#A7D6E3"
 CONTRAST_COLOR = "#3A7EBF"
+
+def SimulateWalk():
+    sim.SimulateRandomWalk(gorge, screen)
 
 def update_animation():
     # Llamar a la función que actualiza la animación de turtle
@@ -70,11 +74,23 @@ def startSimulation():
             
 
 def setParticleDensity(event):
+    """
+    The function "setParticleDensity" calculates and displays the particle density in scientific
+    notation.
+    
+    :param event: The `event` parameter is typically used to pass information about the event that
+    triggered the function. It can be an object that contains details about the event, such as the
+    widget that triggered the event or any additional data associated with the event. In this case, it
+    seems like the `event` parameter
+    """
     particleDensityCalc = wm.particleDensity(U=mp.properties.get(materialEntry.get())[1], D=mp.properties.get(materialEntry.get())[0], El= mp.properties.get(materialEntry.get())[3])
     particleDensityCalc = wm.format_to_scientific_notation(particleDensityCalc)
     particleDensityLabel.configure(text=f"n: {particleDensityCalc} e/m^3")
 
 def usingAWG():
+    """
+    The function `usingAWG()` updates the state of two entry fields based on the selected option.
+    """
     selectedOption = diameterOrAWGSwitch.get()
 
     if(selectedOption == 0):
@@ -86,6 +102,15 @@ def usingAWG():
         awgEntry.configure(state=ctk.NORMAL)
 
 def sliderFunction(event):
+    """
+    The `sliderFunction` function updates the AWG and diameter labels based on the current value of a
+    slider.
+    
+    :param event: The `event` parameter in the `sliderFunction` function is used to capture the event
+    that triggered the function. This can be any event, such as a button click or a slider movement,
+    depending on how the function is being used. The `event` parameter allows you to access information
+    about the
+    """
     currentAWG = math.floor(awgEntry.get())
     diameter = wm.awg_to_diameter(currentAWG)
 
@@ -179,6 +204,10 @@ frame.grid(column= 0, row=0)
 # Submit Button
 submitButton = ctk.CTkButton(frame, text="Confirmar", command=startSimulation, height=50, width=300, font=("Arial", 15, BOLD))
 submitButton.grid(column=0, row=9, pady=50)
+
+# Random Button
+randomButton = ctk.CTkButton(frame, text="Caminata Aleatoria", command=SimulateWalk, height=50, width=300, font=("Arial", 15, BOLD))
+randomButton.grid(column=1, row=1)
 
 # Lienzo para Turtle
 canvas = tk.Canvas(tFrame, width=3000, height=500)

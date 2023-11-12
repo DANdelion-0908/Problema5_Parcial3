@@ -142,7 +142,7 @@ def drawAxis(screenSize: float, screen):
 
 #To use this method, the radius passed to the method has to be in mm and the length in meters
 #The conversions are made inside the method so the scale is better for the simulation
-def drawCilinder(radius: float, length: float, wireColor: float, screen):
+def drawCilinder(radius: float, length: float, wireColor: float, screen, key):
     """
     The function `drawCilinder` takes in parameters for the radius, length, wire color, and screen, and
     uses the turtle module to draw a cylinder shape with the specified dimensions and color.
@@ -195,4 +195,5 @@ def drawCilinder(radius: float, length: float, wireColor: float, screen):
     turt.stamp()
     turt.hideturtle()
 
-    electronAnimation(turt, length)
+    if(key == 1):
+        electronAnimation(turt, length)
