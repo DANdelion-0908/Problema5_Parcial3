@@ -1,3 +1,7 @@
+# Instalaciones de python necearias
+- pip install customtkinter
+- pip install packaging
+
 # Problema 5
  
 Implementar un programa que permita colocar un alambre cilíndrico al cual se le puede aplicar una diferencia de potencial (voltaje).
