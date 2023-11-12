@@ -53,5 +53,5 @@ def Simulation(gorge, screen, cableMaterial, radius, length):
     elif(cableMaterial == "Grafito"):
         drawCilinder(radius, length, "black", screen, 1)
 
-def SimulateRandomWalk(gorge, screen):
-    rw.SimulateRandom(gorge, "white", screen)
+def SimulateRandomWalk(screen):
+    rw.SimulateRandom("white", screen)
