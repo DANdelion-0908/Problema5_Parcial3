@@ -1,4 +1,4 @@
-# Instalaciones de python necearias
+# Instalaciones de python necesarias
 - pip install customtkinter
 - pip install packaging
 
