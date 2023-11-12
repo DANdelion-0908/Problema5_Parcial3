@@ -29,8 +29,6 @@ def startSimulation():
     The function "startSimulation" initiates a simulation with specified parameters.
     """
     try:
-        tk.messagebox.showinfo(message="Espera hasta que la partícula deje de moverse para cerrar el programa.", title="Recomendación")
-
         if(switch_var.get() == "off"):
             material = materialEntry.get()
             density = mp.properties.get(material)[0]
@@ -43,6 +41,7 @@ def startSimulation():
             particleDensity = wm.particleDensity(weight, density, nElectrons)
             selectedOption = diameterOrAWGSwitch.get()
 
+            tk.messagebox.showinfo(message="Espera hasta que la partícula deje de moverse para cerrar el programa.", title="Recomendación")
             if(selectedOption == 1):
                 diameter = wm.awg_to_diameter(currentAWG) / 1000
 
